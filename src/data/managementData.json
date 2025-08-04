@@ -1,0 +1,432 @@
+{
+  "departments": [
+    {
+      "id": "DEPT001",
+      "name": "営業第一部",
+      "parentId": null,
+      "level": 1
+    },
+    {
+      "id": "DEPT002",
+      "name": "営業第二部",
+      "parentId": null,
+      "level": 1
+    },
+    {
+      "id": "DEPT003",
+      "name": "営業第三部",
+      "parentId": null,
+      "level": 1
+    }
+  ],
+  "users": [
+    {
+      "id": "USR001",
+      "name": "山田太郎",
+      "departmentId": "DEPT001",
+      "role": "sales",
+      "teamId": "TEAM001"
+    },
+    {
+      "id": "USR002",
+      "name": "佐藤花子",
+      "departmentId": "DEPT001",
+      "role": "sales",
+      "teamId": "TEAM001"
+    },
+    {
+      "id": "USR003",
+      "name": "鈴木一郎",
+      "departmentId": "DEPT001",
+      "role": "manager",
+      "teamId": "TEAM001"
+    },
+    {
+      "id": "USR004",
+      "name": "高橋美咲",
+      "departmentId": "DEPT002",
+      "role": "sales",
+      "teamId": "TEAM002"
+    },
+    {
+      "id": "USR005",
+      "name": "伊藤健太",
+      "departmentId": "DEPT002",
+      "role": "sales",
+      "teamId": "TEAM002"
+    },
+    {
+      "id": "USR006",
+      "name": "渡辺幸子",
+      "departmentId": "DEPT002",
+      "role": "manager",
+      "teamId": "TEAM002"
+    },
+    {
+      "id": "USR007",
+      "name": "中村隆",
+      "departmentId": "DEPT003",
+      "role": "sales",
+      "teamId": "TEAM003"
+    },
+    {
+      "id": "USR008",
+      "name": "小林美香",
+      "departmentId": "DEPT003",
+      "role": "sales",
+      "teamId": "TEAM003"
+    }
+  ],
+  "products": [
+    {
+      "id": "PROD001",
+      "name": "基幹システムパッケージ",
+      "category": "システム",
+      "basePrice": 5000000
+    },
+    {
+      "id": "PROD002",
+      "name": "クラウドサービス",
+      "category": "サービス",
+      "basePrice": 50000
+    },
+    {
+      "id": "PROD003",
+      "name": "コンサルティング",
+      "category": "サービス",
+      "basePrice": 100000
+    }
+  ],
+  "monthlyKPIData": [
+    {
+      "period": "2025-01",
+      "departmentId": "DEPT001",
+      "kpi": {
+        "callCount": 450,
+        "connectCount": 180,
+        "appointmentCount": 45,
+        "visitCount": 40,
+        "negotiationCount": 20,
+        "negotiationUnitPrice": 3500000,
+        "orderCount": 8,
+        "orderUnitPrice": 4200000,
+        "lostCount": 12
+      }
+    },
+    {
+      "period": "2025-01",
+      "departmentId": "DEPT002",
+      "kpi": {
+        "callCount": 380,
+        "connectCount": 152,
+        "appointmentCount": 38,
+        "visitCount": 35,
+        "negotiationCount": 18,
+        "negotiationUnitPrice": 2800000,
+        "orderCount": 6,
+        "orderUnitPrice": 3500000,
+        "lostCount": 12
+      }
+    },
+    {
+      "period": "2025-01",
+      "departmentId": "DEPT003",
+      "kpi": {
+        "callCount": 320,
+        "connectCount": 128,
+        "appointmentCount": 32,
+        "visitCount": 28,
+        "negotiationCount": 15,
+        "negotiationUnitPrice": 2200000,
+        "orderCount": 5,
+        "orderUnitPrice": 2800000,
+        "lostCount": 10
+      }
+    }
+  ],
+  "userKPIData": [
+    {
+      "period": "2025-01",
+      "userId": "USR001",
+      "kpi": {
+        "callCount": 150,
+        "connectCount": 60,
+        "appointmentCount": 15,
+        "visitCount": 14,
+        "negotiationCount": 8,
+        "negotiationUnitPrice": 4000000,
+        "orderCount": 3,
+        "orderUnitPrice": 4800000,
+        "lostCount": 5
+      }
+    },
+    {
+      "period": "2025-01",
+      "userId": "USR002",
+      "kpi": {
+        "callCount": 120,
+        "connectCount": 48,
+        "appointmentCount": 12,
+        "visitCount": 10,
+        "negotiationCount": 5,
+        "negotiationUnitPrice": 3200000,
+        "orderCount": 2,
+        "orderUnitPrice": 3800000,
+        "lostCount": 3
+      }
+    },
+    {
+      "period": "2025-01",
+      "userId": "USR004",
+      "kpi": {
+        "callCount": 140,
+        "connectCount": 56,
+        "appointmentCount": 14,
+        "visitCount": 13,
+        "negotiationCount": 7,
+        "negotiationUnitPrice": 2800000,
+        "orderCount": 3,
+        "orderUnitPrice": 3200000,
+        "lostCount": 4
+      }
+    },
+    {
+      "period": "2025-01",
+      "userId": "USR005",
+      "kpi": {
+        "callCount": 100,
+        "connectCount": 40,
+        "appointmentCount": 10,
+        "visitCount": 9,
+        "negotiationCount": 4,
+        "negotiationUnitPrice": 2500000,
+        "orderCount": 1,
+        "orderUnitPrice": 3000000,
+        "lostCount": 3
+      }
+    },
+    {
+      "period": "2025-01",
+      "userId": "USR007",
+      "kpi": {
+        "callCount": 160,
+        "connectCount": 64,
+        "appointmentCount": 16,
+        "visitCount": 14,
+        "negotiationCount": 8,
+        "negotiationUnitPrice": 2400000,
+        "orderCount": 3,
+        "orderUnitPrice": 2900000,
+        "lostCount": 5
+      }
+    },
+    {
+      "period": "2025-01",
+      "userId": "USR008",
+      "kpi": {
+        "callCount": 80,
+        "connectCount": 32,
+        "appointmentCount": 8,
+        "visitCount": 7,
+        "negotiationCount": 3,
+        "negotiationUnitPrice": 1800000,
+        "orderCount": 1,
+        "orderUnitPrice": 2200000,
+        "lostCount": 2
+      }
+    }
+  ],
+  "weeklyTrends": [
+    {
+      "date": "2025-01-06",
+      "departmentId": "DEPT001",
+      "kpi": {
+        "callCount": 110,
+        "connectCount": 44,
+        "appointmentCount": 11,
+        "visitCount": 10,
+        "negotiationCount": 5,
+        "negotiationUnitPrice": 3500000,
+        "orderCount": 2,
+        "orderUnitPrice": 4200000,
+        "lostCount": 3
+      }
+    },
+    {
+      "date": "2025-01-13",
+      "departmentId": "DEPT001",
+      "kpi": {
+        "callCount": 115,
+        "connectCount": 46,
+        "appointmentCount": 12,
+        "visitCount": 10,
+        "negotiationCount": 5,
+        "negotiationUnitPrice": 3600000,
+        "orderCount": 2,
+        "orderUnitPrice": 4300000,
+        "lostCount": 3
+      }
+    },
+    {
+      "date": "2025-01-20",
+      "departmentId": "DEPT001",
+      "kpi": {
+        "callCount": 120,
+        "connectCount": 48,
+        "appointmentCount": 12,
+        "visitCount": 11,
+        "negotiationCount": 6,
+        "negotiationUnitPrice": 3400000,
+        "orderCount": 2,
+        "orderUnitPrice": 4100000,
+        "lostCount": 4
+      }
+    },
+    {
+      "date": "2025-01-27",
+      "departmentId": "DEPT001",
+      "kpi": {
+        "callCount": 105,
+        "connectCount": 42,
+        "appointmentCount": 10,
+        "visitCount": 9,
+        "negotiationCount": 4,
+        "negotiationUnitPrice": 3500000,
+        "orderCount": 2,
+        "orderUnitPrice": 4200000,
+        "lostCount": 2
+      }
+    }
+  ],
+  "industryKPIData": [
+    {
+      "industry": "製造業",
+      "period": "2025-01",
+      "kpi": {
+        "callCount": 400,
+        "connectCount": 160,
+        "appointmentCount": 40,
+        "visitCount": 36,
+        "negotiationCount": 18,
+        "negotiationUnitPrice": 3800000,
+        "orderCount": 7,
+        "orderUnitPrice": 4500000,
+        "lostCount": 11
+      }
+    },
+    {
+      "industry": "小売業",
+      "period": "2025-01",
+      "kpi": {
+        "callCount": 350,
+        "connectCount": 140,
+        "appointmentCount": 35,
+        "visitCount": 32,
+        "negotiationCount": 16,
+        "negotiationUnitPrice": 2500000,
+        "orderCount": 6,
+        "orderUnitPrice": 3000000,
+        "lostCount": 10
+      }
+    },
+    {
+      "industry": "サービス業",
+      "period": "2025-01",
+      "kpi": {
+        "callCount": 300,
+        "connectCount": 120,
+        "appointmentCount": 30,
+        "visitCount": 27,
+        "negotiationCount": 14,
+        "negotiationUnitPrice": 2200000,
+        "orderCount": 5,
+        "orderUnitPrice": 2600000,
+        "lostCount": 9
+      }
+    }
+  ],
+  "companySizeKPIData": [
+    {
+      "companySize": "large",
+      "period": "2025-01",
+      "kpi": {
+        "callCount": 200,
+        "connectCount": 80,
+        "appointmentCount": 20,
+        "visitCount": 18,
+        "negotiationCount": 10,
+        "negotiationUnitPrice": 5000000,
+        "orderCount": 4,
+        "orderUnitPrice": 6000000,
+        "lostCount": 6
+      }
+    },
+    {
+      "companySize": "medium",
+      "period": "2025-01",
+      "kpi": {
+        "callCount": 500,
+        "connectCount": 200,
+        "appointmentCount": 50,
+        "visitCount": 45,
+        "negotiationCount": 23,
+        "negotiationUnitPrice": 3000000,
+        "orderCount": 9,
+        "orderUnitPrice": 3500000,
+        "lostCount": 14
+      }
+    },
+    {
+      "companySize": "small",
+      "period": "2025-01",
+      "kpi": {
+        "callCount": 450,
+        "connectCount": 180,
+        "appointmentCount": 45,
+        "visitCount": 40,
+        "negotiationCount": 20,
+        "negotiationUnitPrice": 1500000,
+        "orderCount": 6,
+        "orderUnitPrice": 1800000,
+        "lostCount": 14
+      }
+    }
+  ],
+  "salesFunnelData": [
+    {
+      "period": "2025-01",
+      "funnel": [
+        {
+          "stage": "call",
+          "count": 1150,
+          "conversionRate": 100
+        },
+        {
+          "stage": "connect",
+          "count": 460,
+          "conversionRate": 40
+        },
+        {
+          "stage": "appointment",
+          "count": 115,
+          "conversionRate": 25
+        },
+        {
+          "stage": "visit",
+          "count": 103,
+          "conversionRate": 89.6
+        },
+        {
+          "stage": "negotiation",
+          "count": 53,
+          "conversionRate": 51.5
+        },
+        {
+          "stage": "order",
+          "count": 19,
+          "conversionRate": 35.8
+        }
+      ]
+    }
+  ]
+}

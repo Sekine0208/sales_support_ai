@@ -1,0 +1,102 @@
+{
+  "kpi": {
+    "kgi": {
+      "target": 10000000,
+      "current": 6800000,
+      "achievementRate": 68,
+      "month": "2025年1月"
+    },
+    "kpi": {
+      "calls": {
+        "target": 200,
+        "current": 134,
+        "achievementRate": 67
+      },
+      "connected": {
+        "target": 100,
+        "current": 72,
+        "achievementRate": 72
+      },
+      "appointments": {
+        "target": 40,
+        "current": 28,
+        "achievementRate": 70
+      },
+      "visits": {
+        "target": 35,
+        "current": 22,
+        "achievementRate": 63
+      },
+      "negotiations": {
+        "target": 25,
+        "current": 18,
+        "achievementRate": 72
+      },
+      "proposals": {
+        "target": 20,
+        "current": 12,
+        "achievementRate": 60
+      },
+      "orders": {
+        "target": 15,
+        "current": 8,
+        "achievementRate": 53
+      }
+    },
+    "nextAction": {
+      "message": "本日中に最低20件の架電を完了してください。現在のペースでは月間目標に届きません。",
+      "urgency": "high",
+      "actionType": "call"
+    }
+  },
+  "todos": [
+    {
+      "id": "todo-1",
+      "title": "A社への架電（前回アポから2週間経過）",
+      "description": "前回の商談で興味を示していただいた新製品について、フォローアップの連絡",
+      "priority": "high",
+      "completed": false,
+      "dueTime": "10:00",
+      "actionType": "call",
+      "relatedCompany": "株式会社A商事"
+    },
+    {
+      "id": "todo-2",
+      "title": "B社向け提案書の最終確認",
+      "description": "明日のプレゼンに向けて、提案書の数値と構成を最終チェック",
+      "priority": "high",
+      "completed": false,
+      "dueTime": "11:30",
+      "actionType": "proposal",
+      "relatedCompany": "B工業株式会社"
+    },
+    {
+      "id": "todo-3",
+      "title": "新規リスト50件への初回架電",
+      "description": "マーケティング部から共有された新規見込み客リストへのアプローチ開始",
+      "priority": "medium",
+      "completed": false,
+      "dueTime": "14:00",
+      "actionType": "call"
+    },
+    {
+      "id": "todo-4",
+      "title": "C社とのWeb商談（15:00）",
+      "description": "製品デモンストレーションを含むオンライン商談。事前に接続テストを実施",
+      "priority": "high",
+      "completed": false,
+      "dueTime": "15:00",
+      "actionType": "appointment",
+      "relatedCompany": "C製造株式会社"
+    },
+    {
+      "id": "todo-5",
+      "title": "本日の活動報告入力",
+      "description": "架電結果、商談内容、次回アクションをCRMに入力",
+      "priority": "low",
+      "completed": false,
+      "dueTime": "17:30",
+      "actionType": "other"
+    }
+  ]
+}

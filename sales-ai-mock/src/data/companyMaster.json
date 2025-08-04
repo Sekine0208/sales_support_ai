@@ -1,0 +1,169 @@
+{
+  "companies": [
+    {
+      "id": "company-1",
+      "companyName": "株式会社A商事",
+      "contactPerson": "田中 太郎",
+      "phoneNumber": "03-1234-5678",
+      "priority": "high",
+      "lastContactDate": "2025-01-08",
+      "industry": "製造業",
+      "status": "negotiating",
+      "purchasedProducts": ["製品A Pro", "保守サービス"],
+      "industryTrends": ["DX推進", "自動化需要増加", "サプライチェーン最適化"],
+      "keyPersons": [
+        {
+          "name": "田中 太郎",
+          "position": "購買部長",
+          "notes": "決裁権限あり。技術詳細に関心高い"
+        },
+        {
+          "name": "山田 花子",
+          "position": "IT推進室長",
+          "notes": "新システム導入の推進者"
+        }
+      ],
+      "notes": "前回商談で新製品に強い関心。予算承認待ち"
+    },
+    {
+      "id": "company-2",
+      "companyName": "B工業株式会社",
+      "contactPerson": "鈴木 次郎",
+      "phoneNumber": "06-2345-6789",
+      "priority": "high",
+      "lastContactDate": "2025-01-10",
+      "industry": "機械製造",
+      "status": "proposal",
+      "purchasedProducts": ["製品B Standard"],
+      "industryTrends": ["IoT導入", "品質管理強化", "省エネ対応"],
+      "keyPersons": [
+        {
+          "name": "鈴木 次郎",
+          "position": "取締役",
+          "notes": "最終決裁者。ROI重視"
+        }
+      ],
+      "notes": "提案書提出済み。明日プレゼン予定"
+    },
+    {
+      "id": "company-3",
+      "companyName": "C製造株式会社",
+      "contactPerson": "佐藤 三郎",
+      "phoneNumber": "052-3456-7890",
+      "priority": "medium",
+      "lastContactDate": "2025-01-05",
+      "industry": "自動車部品",
+      "status": "new",
+      "purchasedProducts": [],
+      "industryTrends": ["EV対応", "軽量化", "コスト削減"],
+      "keyPersons": [
+        {
+          "name": "佐藤 三郎",
+          "position": "生産部長",
+          "notes": "品質重視。慎重な検討派"
+        }
+      ],
+      "notes": "初回面談完了。次回技術詳細説明予定"
+    },
+    {
+      "id": "company-4",
+      "companyName": "D商会",
+      "contactPerson": "伊藤 四郎",
+      "phoneNumber": "092-4567-8901",
+      "priority": "low",
+      "lastContactDate": "2025-01-03",
+      "industry": "商社",
+      "status": "closed",
+      "purchasedProducts": ["製品C Basic"],
+      "industryTrends": ["デジタル化", "効率化", "コスト最適化"],
+      "keyPersons": [
+        {
+          "name": "伊藤 四郎",
+          "position": "営業部長",
+          "notes": "価格重視。競合比較中"
+        }
+      ],
+      "notes": "予算の関係で今期は見送り"
+    },
+    {
+      "id": "company-5",
+      "companyName": "E物産株式会社",
+      "contactPerson": "高橋 五郎",
+      "phoneNumber": "011-5678-9012",
+      "priority": "medium",
+      "lastContactDate": "2025-01-12",
+      "industry": "物流",
+      "status": "negotiating",
+      "purchasedProducts": ["物流管理システム"],
+      "industryTrends": ["自動化", "在庫最適化", "配送効率化"],
+      "keyPersons": [
+        {
+          "name": "高橋 五郎",
+          "position": "物流部長",
+          "notes": "現場重視。実用性を重要視"
+        }
+      ],
+      "notes": "追加機能について検討中"
+    },
+    {
+      "id": "company-6",
+      "companyName": "F技研株式会社",
+      "contactPerson": "小林 六郎",
+      "phoneNumber": "045-6789-0123",
+      "priority": "high",
+      "lastContactDate": "2025-01-15",
+      "industry": "IT・ソフトウェア",
+      "status": "proposal",
+      "purchasedProducts": [],
+      "industryTrends": ["AI活用", "クラウド移行", "セキュリティ強化"],
+      "keyPersons": [
+        {
+          "name": "小林 六郎",
+          "position": "CTO",
+          "notes": "技術志向。最新技術に関心"
+        }
+      ],
+      "notes": "技術検証中。来月決定予定"
+    },
+    {
+      "id": "company-7",
+      "companyName": "G流通センター",
+      "contactPerson": "加藤 七郎",
+      "phoneNumber": "078-7890-1234",
+      "priority": "medium",
+      "lastContactDate": "2025-01-07",
+      "industry": "小売・流通",
+      "status": "new",
+      "purchasedProducts": [],
+      "industryTrends": ["オムニチャネル", "在庫管理", "顧客分析"],
+      "keyPersons": [
+        {
+          "name": "加藤 七郎",
+          "position": "店舗運営部長",
+          "notes": "現場経験豊富。実績重視"
+        }
+      ],
+      "notes": "初回提案準備中"
+    },
+    {
+      "id": "company-8",
+      "companyName": "H建設株式会社",
+      "contactPerson": "斎藤 八郎",
+      "phoneNumber": "022-8901-2345",
+      "priority": "low",
+      "lastContactDate": "2025-01-01",
+      "industry": "建設・不動産",
+      "status": "new",
+      "purchasedProducts": [],
+      "industryTrends": ["BIM導入", "働き方改革", "安全管理"],
+      "keyPersons": [
+        {
+          "name": "斎藤 八郎",
+          "position": "工務部長",
+          "notes": "安全性重視。慎重派"
+        }
+      ],
+      "notes": "年度末に向けて検討開始"
+    }
+  ]
+} 

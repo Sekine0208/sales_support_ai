@@ -1,0 +1,5 @@
+@import 'antd/dist/reset.css';
+
+#root {
+  height: 100%;
+}

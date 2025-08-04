@@ -1,0 +1,413 @@
+{
+  "callList": [
+    {
+      "id": "call-1",
+      "companyName": "株式会社A商事",
+      "contactPerson": "田中 太郎",
+      "phoneNumber": "03-1234-5678",
+      "priority": "high",
+      "lastContactDate": "2025-01-08",
+      "industry": "製造業",
+      "status": "negotiating",
+      "purchasedProducts": ["製品A Pro", "保守サービス"],
+      "industryTrends": ["DX推進", "自動化需要増加", "サプライチェーン最適化"],
+      "keyPersons": [
+        {
+          "name": "田中 太郎",
+          "position": "購買部長",
+          "notes": "決裁権限あり。技術詳細に関心高い"
+        },
+        {
+          "name": "山田 花子",
+          "position": "IT推進室長",
+          "notes": "新システム導入の推進者"
+        }
+      ],
+      "notes": "前回商談で新製品に強い関心。予算承認待ち"
+    },
+    {
+      "id": "call-2",
+      "companyName": "B工業株式会社",
+      "contactPerson": "鈴木 次郎",
+      "phoneNumber": "06-2345-6789",
+      "priority": "high",
+      "lastContactDate": "2025-01-10",
+      "industry": "機械製造",
+      "status": "proposal",
+      "purchasedProducts": ["製品B Standard"],
+      "industryTrends": ["IoT導入", "品質管理強化", "省エネ対応"],
+      "keyPersons": [
+        {
+          "name": "鈴木 次郎",
+          "position": "取締役",
+          "notes": "最終決裁者。ROI重視"
+        }
+      ],
+      "notes": "提案書提出済み。明日プレゼン予定"
+    },
+    {
+      "id": "call-3",
+      "companyName": "C製造株式会社",
+      "contactPerson": "佐藤 三郎",
+      "phoneNumber": "045-3456-7890",
+      "priority": "medium",
+      "lastContactDate": "2025-01-15",
+      "industry": "電子部品",
+      "status": "new",
+      "purchasedProducts": [],
+      "industryTrends": ["半導体不足対応", "在庫最適化", "品質保証強化"],
+      "keyPersons": [
+        {
+          "name": "佐藤 三郎",
+          "position": "営業部長",
+          "notes": "窓口担当。技術部門との調整役"
+        }
+      ],
+      "notes": "新規開拓先。競合他社製品使用中"
+    },
+    {
+      "id": "call-4",
+      "companyName": "D商会",
+      "contactPerson": "高橋 四郎",
+      "phoneNumber": "052-4567-8901",
+      "priority": "medium",
+      "lastContactDate": "2024-12-20",
+      "industry": "卸売業",
+      "status": "negotiating",
+      "purchasedProducts": ["製品C Basic", "在庫管理システム"],
+      "industryTrends": ["物流効率化", "在庫回転率向上", "EC対応"],
+      "keyPersons": [
+        {
+          "name": "高橋 四郎",
+          "position": "システム部長",
+          "notes": "技術選定の責任者"
+        }
+      ],
+      "notes": "アップグレード検討中。年度末予算で導入予定"
+    },
+    {
+      "id": "call-5",
+      "companyName": "E物産株式会社",
+      "contactPerson": "伊藤 五郎",
+      "phoneNumber": "011-5678-9012",
+      "priority": "low",
+      "lastContactDate": "2024-11-30",
+      "industry": "食品流通",
+      "status": "closed",
+      "purchasedProducts": ["製品A Lite", "製品D"],
+      "industryTrends": [
+        "コールドチェーン強化",
+        "トレーサビリティ",
+        "食品ロス削減"
+      ],
+      "keyPersons": [
+        {
+          "name": "伊藤 五郎",
+          "position": "経営企画部長",
+          "notes": "長期的な視点で検討"
+        }
+      ],
+      "notes": "現在は様子見。来期に再アプローチ予定"
+    },
+    {
+      "id": "call-6",
+      "companyName": "F技研株式会社",
+      "contactPerson": "渡辺 六郎",
+      "phoneNumber": "03-6789-0123",
+      "priority": "high",
+      "lastContactDate": "2025-01-20",
+      "industry": "IT・ソフトウェア",
+      "status": "negotiating",
+      "purchasedProducts": ["製品B Pro"],
+      "industryTrends": ["クラウド移行", "セキュリティ強化", "AI活用"],
+      "keyPersons": [
+        {
+          "name": "渡辺 六郎",
+          "position": "CTO",
+          "notes": "技術決定権あり。新技術に積極的"
+        }
+      ],
+      "notes": "追加ライセンス購入検討中。来週デモ予定"
+    },
+    {
+      "id": "call-7",
+      "companyName": "G流通センター",
+      "contactPerson": "小林 七子",
+      "phoneNumber": "06-7890-1234",
+      "priority": "medium",
+      "lastContactDate": "2025-01-05",
+      "industry": "物流",
+      "status": "new",
+      "purchasedProducts": [],
+      "industryTrends": ["自動倉庫", "配送最適化", "在庫可視化"],
+      "keyPersons": [
+        {
+          "name": "小林 七子",
+          "position": "物流部長",
+          "notes": "効率化に強い関心"
+        }
+      ],
+      "notes": "競合からの乗り換え検討中"
+    },
+    {
+      "id": "call-8",
+      "companyName": "H建設株式会社",
+      "contactPerson": "加藤 八郎",
+      "phoneNumber": "045-8901-2345",
+      "priority": "low",
+      "lastContactDate": "2024-10-15",
+      "industry": "建設業",
+      "status": "closed",
+      "purchasedProducts": ["製品C Standard", "プロジェクト管理ツール"],
+      "industryTrends": ["DX推進", "働き方改革", "安全管理強化"],
+      "keyPersons": [
+        {
+          "name": "加藤 八郎",
+          "position": "情報システム部長",
+          "notes": "保守的な判断傾向"
+        }
+      ],
+      "notes": "今期は予算なし。来期に再検討"
+    },
+    {
+      "id": "call-9",
+      "companyName": "I医療機器",
+      "contactPerson": "山本 九美",
+      "phoneNumber": "052-9012-3456",
+      "priority": "high",
+      "lastContactDate": "2025-01-18",
+      "industry": "医療機器",
+      "status": "proposal",
+      "purchasedProducts": [],
+      "industryTrends": ["医療DX", "遠隔診療対応", "データ統合"],
+      "keyPersons": [
+        {
+          "name": "山本 九美",
+          "position": "経営企画室長",
+          "notes": "新規事業立ち上げ責任者"
+        }
+      ],
+      "notes": "大型案件の可能性。役員プレゼン調整中"
+    },
+    {
+      "id": "call-10",
+      "companyName": "J食品工業",
+      "contactPerson": "中村 十郎",
+      "phoneNumber": "011-0123-4567",
+      "priority": "medium",
+      "lastContactDate": "2025-01-12",
+      "industry": "食品製造",
+      "status": "negotiating",
+      "purchasedProducts": ["製品A Standard"],
+      "industryTrends": ["HACCP対応", "トレーサビリティ", "省人化"],
+      "keyPersons": [
+        {
+          "name": "中村 十郎",
+          "position": "工場長",
+          "notes": "現場の効率化を重視"
+        }
+      ],
+      "notes": "生産管理システムの更新を検討"
+    },
+    {
+      "id": "call-11",
+      "companyName": "Kサービス株式会社",
+      "contactPerson": "松本 十一",
+      "phoneNumber": "03-1234-5679",
+      "priority": "low",
+      "lastContactDate": "2024-09-30",
+      "industry": "サービス業",
+      "status": "new",
+      "purchasedProducts": [],
+      "industryTrends": ["顧客体験向上", "オムニチャネル", "データ分析"],
+      "keyPersons": [
+        {
+          "name": "松本 十一",
+          "position": "マーケティング部長",
+          "notes": "データ活用に興味"
+        }
+      ],
+      "notes": "情報収集段階。長期的なアプローチ必要"
+    },
+    {
+      "id": "call-12",
+      "companyName": "L運輸株式会社",
+      "contactPerson": "井上 十二子",
+      "phoneNumber": "06-2345-6790",
+      "priority": "high",
+      "lastContactDate": "2025-01-19",
+      "industry": "運輸",
+      "status": "negotiating",
+      "purchasedProducts": ["製品D Pro", "車両管理システム"],
+      "industryTrends": ["配送効率化", "ドライバー不足対策", "環境対応"],
+      "keyPersons": [
+        {
+          "name": "井上 十二子",
+          "position": "取締役運輸本部長",
+          "notes": "即断即決タイプ"
+        }
+      ],
+      "notes": "全社展開を検討中。今月中に決定予定"
+    },
+    {
+      "id": "call-13",
+      "companyName": "M電機製造",
+      "contactPerson": "木村 十三",
+      "phoneNumber": "045-3456-7891",
+      "priority": "medium",
+      "lastContactDate": "2025-01-14",
+      "industry": "電機製造",
+      "status": "proposal",
+      "purchasedProducts": ["製品B Standard"],
+      "industryTrends": ["スマート工場", "IoT活用", "予知保全"],
+      "keyPersons": [
+        {
+          "name": "木村 十三",
+          "position": "製造部長",
+          "notes": "コスト削減を最重視"
+        }
+      ],
+      "notes": "見積もり提出済み。他社と比較検討中"
+    },
+    {
+      "id": "call-14",
+      "companyName": "N化学工業",
+      "contactPerson": "林 十四郎",
+      "phoneNumber": "052-4567-8902",
+      "priority": "low",
+      "lastContactDate": "2024-08-20",
+      "industry": "化学工業",
+      "status": "closed",
+      "purchasedProducts": ["製品C Pro", "品質管理システム"],
+      "industryTrends": ["環境規制対応", "品質保証強化", "研究開発効率化"],
+      "keyPersons": [
+        {
+          "name": "林 十四郎",
+          "position": "品質保証部長",
+          "notes": "規制対応を重視"
+        }
+      ],
+      "notes": "満足度は高いが追加投資は慎重"
+    },
+    {
+      "id": "call-15",
+      "companyName": "Oホールディングス",
+      "contactPerson": "斎藤 十五",
+      "phoneNumber": "011-5678-9013",
+      "priority": "high",
+      "lastContactDate": "2025-01-21",
+      "industry": "総合商社",
+      "status": "negotiating",
+      "purchasedProducts": [],
+      "industryTrends": ["グループ経営効率化", "DX推進", "グローバル展開"],
+      "keyPersons": [
+        {
+          "name": "斎藤 十五",
+          "position": "執行役員",
+          "notes": "グループ全体のIT戦略担当"
+        }
+      ],
+      "notes": "グループ企業への展開も視野。大型案件"
+    },
+    {
+      "id": "call-16",
+      "companyName": "P精密機器",
+      "contactPerson": "藤田 十六子",
+      "phoneNumber": "03-6789-0124",
+      "priority": "medium",
+      "lastContactDate": "2025-01-16",
+      "industry": "精密機器",
+      "status": "new",
+      "purchasedProducts": [],
+      "industryTrends": ["高精度化", "自動検査", "データ連携"],
+      "keyPersons": [
+        {
+          "name": "藤田 十六子",
+          "position": "技術開発部長",
+          "notes": "品質向上に強い関心"
+        }
+      ],
+      "notes": "技術評価段階。POC実施を検討"
+    },
+    {
+      "id": "call-17",
+      "companyName": "Q不動産",
+      "contactPerson": "清水 十七",
+      "phoneNumber": "06-7890-1235",
+      "priority": "medium",
+      "lastContactDate": "2025-01-11",
+      "industry": "不動産",
+      "status": "proposal",
+      "purchasedProducts": ["製品A Lite"],
+      "industryTrends": ["PropTech", "顧客管理強化", "業務効率化"],
+      "keyPersons": [
+        {
+          "name": "清水 十七",
+          "position": "営業統括部長",
+          "notes": "営業効率化を追求"
+        }
+      ],
+      "notes": "営業支援ツールの導入を検討中"
+    },
+    {
+      "id": "call-18",
+      "companyName": "R自動車部品",
+      "contactPerson": "森田 十八郎",
+      "phoneNumber": "045-8901-2346",
+      "priority": "low",
+      "lastContactDate": "2024-07-10",
+      "industry": "自動車部品",
+      "status": "closed",
+      "purchasedProducts": ["製品D Standard", "在庫管理システム"],
+      "industryTrends": ["EV対応", "サプライチェーン最適化", "品質管理"],
+      "keyPersons": [
+        {
+          "name": "森田 十八郎",
+          "position": "調達部長",
+          "notes": "サプライヤー管理を重視"
+        }
+      ],
+      "notes": "現状維持。大きな変更は予定なし"
+    },
+    {
+      "id": "call-19",
+      "companyName": "Sエネルギー",
+      "contactPerson": "橋本 十九美",
+      "phoneNumber": "052-9012-3457",
+      "priority": "high",
+      "lastContactDate": "2025-01-22",
+      "industry": "エネルギー",
+      "status": "negotiating",
+      "purchasedProducts": [],
+      "industryTrends": ["再生可能エネルギー", "スマートグリッド", "省エネ"],
+      "keyPersons": [
+        {
+          "name": "橋本 十九美",
+          "position": "新規事業部長",
+          "notes": "イノベーションを推進"
+        }
+      ],
+      "notes": "新規事業での活用を検討。役員承認待ち"
+    },
+    {
+      "id": "call-20",
+      "companyName": "T通信サービス",
+      "contactPerson": "大野 二十",
+      "phoneNumber": "011-0123-4568",
+      "priority": "medium",
+      "lastContactDate": "2025-01-13",
+      "industry": "通信",
+      "status": "new",
+      "purchasedProducts": [],
+      "industryTrends": ["5G展開", "IoTサービス", "セキュリティ強化"],
+      "keyPersons": [
+        {
+          "name": "大野 二十",
+          "position": "ソリューション部長",
+          "notes": "パートナーシップに興味"
+        }
+      ],
+      "notes": "協業の可能性も含めて検討開始"
+    }
+  ]
+}
