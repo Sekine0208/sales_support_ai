@@ -9,7 +9,7 @@ import {
   Input,
   Space,
   DatePicker,
-  List,
+  Table,
   Divider,
   Badge,
   Modal,
@@ -414,6 +414,141 @@ const ActivityHistory: React.FC<ActivityHistoryProps> = ({
     );
   };
 
+  // テーブル用のデータを準備
+  const tableData = sortedActivities.map((item, index) => ({
+    key: item.id,
+    ...item,
+    index,
+  }));
+
+  // テーブルカラム定義
+  const columns = [
+    {
+      title: '日時',
+      dataIndex: 'activityDate',
+      key: 'activityDate',
+      width: 120,
+      render: (date: string, record: ActivityItem) => {
+        const formattedDate = new Date(date).toLocaleDateString('ja-JP', {
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+        return renderEditableField(record, 'activityDate', formattedDate, 'date');
+      },
+    },
+    {
+      title: '種別',
+      dataIndex: 'activityType',
+      key: 'activityType',
+      width: 80,
+      render: (type: ActivityType, record: ActivityItem) => (
+        <Space>
+          {getActivityIcon(type, 'small')}
+          <Text style={{ fontSize: '12px' }}>
+            {getActivityTypeLabel(type)}
+          </Text>
+        </Space>
+      ),
+    },
+    {
+      title: '結果',
+      dataIndex: 'resultType',
+      key: 'resultType',
+      width: 120,
+      render: (resultType: string, record: ActivityItem) => {
+        if (!resultType) return '-';
+        return (
+          <Tag
+            style={{
+              backgroundColor: getResultColorVariation(
+                record.activityType,
+                resultType
+              ),
+              borderColor: getResultColorVariation(
+                record.activityType,
+                resultType
+              ),
+              color: 'white',
+              fontSize: '11px',
+              padding: '2px 6px',
+              borderRadius: '4px',
+            }}
+          >
+            {renderEditableField(
+              record,
+              'resultType',
+              getResultTypeLabel(resultType),
+              'select'
+            )}
+          </Tag>
+        );
+      },
+    },
+    {
+      title: '概要',
+      dataIndex: 'summary',
+      key: 'summary',
+      width: 200,
+      render: (summary: string, record: ActivityItem) => (
+        <Text style={{ fontSize: '12px' }}>
+          {renderEditableField(record, 'summary', summary)}
+        </Text>
+      ),
+    },
+    {
+      title: '詳細',
+      dataIndex: 'details',
+      key: 'details',
+      width: 250,
+      render: (details: string, record: ActivityItem) => (
+        <Text style={{ fontSize: '11px', color: '#666' }}>
+          {renderEditableField(record, 'details', details, 'textarea')}
+        </Text>
+      ),
+    },
+    {
+      title: '金額',
+      dataIndex: 'amount',
+      key: 'amount',
+      width: 100,
+      render: (amount: number, record: ActivityItem) => {
+        if (!amount) return '-';
+        return (
+          <Text strong style={{ fontSize: '12px', color: '#52c41a' }}>
+            {renderEditableField(
+              record,
+              'amount',
+              `¥${amount.toLocaleString()}`
+            )}
+          </Text>
+        );
+      },
+    },
+    {
+      title: '操作',
+      key: 'action',
+      width: 80,
+      render: (_: any, record: ActivityItem) => (
+        <Button
+          size="small"
+          icon={<InfoCircleOutlined />}
+          onClick={() => handleShowDetail(record)}
+          style={{
+            fontSize: '11px',
+            backgroundColor: '#f0f0f0',
+            borderColor: '#d9d9d9',
+            color: '#595959',
+            borderRadius: '4px',
+          }}
+        >
+          詳細
+        </Button>
+      ),
+    },
+  ];
+
   if (sortedActivities.length === 0) {
     return (
       <Empty description="活動履歴がありません" style={{ padding: '40px 0' }} />
@@ -421,11 +556,11 @@ const ActivityHistory: React.FC<ActivityHistoryProps> = ({
   }
 
   return (
-    <div>
+    <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       {editingItem && (
         <Card
           size="small"
-          style={{ marginBottom: 16, backgroundColor: '#f6ffed' }}
+          style={{ marginBottom: 16, backgroundColor: '#f6ffed', flexShrink: 0 }}
         >
           <Space>
             <Button
@@ -446,165 +581,19 @@ const ActivityHistory: React.FC<ActivityHistoryProps> = ({
         </Card>
       )}
 
-      <List
-        dataSource={sortedActivities}
-        renderItem={(item, index) => {
-          const formattedDate = new Date(item.activityDate).toLocaleDateString(
-            'ja-JP',
-            {
-              month: '2-digit',
-              day: '2-digit',
-              hour: '2-digit',
-              minute: '2-digit',
-            }
-          );
+      <div style={{ flex: 1, overflow: 'hidden', minHeight: 0 }}>
+        <Table
+          columns={columns}
+          dataSource={tableData}
+          pagination={false}
+          size="small"
+          bordered
+          scroll={{ x: 800, y: 250 }}
+          style={{ fontSize: '12px', height: '100%' }}
+        />
+      </div>
 
-          return (
-            <List.Item style={{ padding: 0, border: 'none' }}>
-              <Card
-                size="small"
-                style={{
-                  width: '100%',
-                  marginBottom: 12,
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                  borderRadius: '8px',
-                  border: '1px solid #f0f0f0',
-                }}
-                hoverable
-              >
-                {/* ヘッダー部分 */}
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: 8,
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 12,
-                      flex: 1,
-                    }}
-                  >
-                    {getActivityIcon(item.activityType, 'medium')}
-                    {item.resultType && (
-                      <Tag
-                        style={{
-                          backgroundColor: getResultColorVariation(
-                            item.activityType,
-                            item.resultType
-                          ),
-                          borderColor: getResultColorVariation(
-                            item.activityType,
-                            item.resultType
-                          ),
-                          color: 'white',
-                          fontSize: '12px',
-                          padding: '2px 8px',
-                          borderRadius: '4px',
-                        }}
-                      >
-                        {renderEditableField(
-                          item,
-                          'resultType',
-                          getResultTypeLabel(item.resultType),
-                          'select'
-                        )}
-                      </Tag>
-                    )}
-                    <Text style={{ fontSize: 15, fontWeight: 500 }}>
-                      {renderEditableField(item, 'summary', item.summary)}
-                    </Text>
-                  </div>
-                  <Text type="secondary" style={{ fontSize: 13 }}>
-                    {renderEditableField(
-                      item,
-                      'activityDate',
-                      formattedDate,
-                      'date'
-                    )}
-                  </Text>
-                </div>
-
-                {/* 詳細情報 */}
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'flex-start',
-                  }}
-                >
-                  {item.details && (
-                    <div style={{ flex: 1, marginRight: 16 }}>
-                      <Text type="secondary" style={{ fontSize: 12 }}>
-                        詳細メモ
-                      </Text>
-                      <div style={{ marginTop: 4 }}>
-                        <Text style={{ fontSize: 13 }}>
-                          {renderEditableField(
-                            item,
-                            'details',
-                            item.details,
-                            'textarea'
-                          )}
-                        </Text>
-                      </div>
-                    </div>
-                  )}
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'flex-end',
-                      gap: 4,
-                    }}
-                  >
-                    {item.amount && (
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: 8,
-                        }}
-                      >
-                        <Text type="secondary" style={{ fontSize: 12 }}>
-                          金額
-                        </Text>
-                        <Text strong style={{ fontSize: 14, color: '#52c41a' }}>
-                          {renderEditableField(
-                            item,
-                            'amount',
-                            `¥${item.amount.toLocaleString()}`
-                          )}
-                        </Text>
-                      </div>
-                    )}
-                    <Button
-                      size="small"
-                      icon={<InfoCircleOutlined />}
-                      onClick={() => handleShowDetail(item)}
-                      style={{
-                        fontSize: 12,
-                        backgroundColor: '#f0f0f0',
-                        borderColor: '#d9d9d9',
-                        color: '#595959',
-                        borderRadius: '4px',
-                      }}
-                    >
-                      詳細
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            </List.Item>
-          );
-        }}
-      />
-
-      <div style={{ marginTop: 16, textAlign: 'center' }}>
+      <div style={{ marginTop: 16, textAlign: 'center', flexShrink: 0 }}>
         <Text type="secondary" style={{ fontSize: 12 }}>
           {filteredActivities.length}件の活動履歴 | 項目をクリックして編集
         </Text>

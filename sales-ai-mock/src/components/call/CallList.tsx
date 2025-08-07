@@ -32,9 +32,10 @@ const { Title } = Typography;
 interface CallListProps {
   callList: CallItem[];
   onSelectCompany: (company: CallItem) => void;
+  isCompanySelected?: boolean;
 }
 
-const CallList: React.FC<CallListProps> = ({ callList, onSelectCompany }) => {
+const CallList: React.FC<CallListProps> = ({ callList, onSelectCompany, isCompanySelected }) => {
   const { message, modal } = App.useApp();
   const [filteredList, setFilteredList] = useState(callList);
   const [resultModalVisible, setResultModalVisible] = useState(false);
@@ -130,8 +131,10 @@ const CallList: React.FC<CallListProps> = ({ callList, onSelectCompany }) => {
   };
 
   const handleCall = (record: CallItem) => {
+    // 発信確認画面をスキップして直接録音画面に移行
     setCallTarget(record);
     setShowCallPopup(true);
+    // 直接録音画面に移行するため、CallPopupコンポーネントで初期ステップを'recording'に設定
   };
 
   const handleCallResult = (result: {
@@ -281,52 +284,35 @@ const CallList: React.FC<CallListProps> = ({ callList, onSelectCompany }) => {
   });
 
   return (
-    <Row gutter={16} style={{ height: '100vh' }}>
-      {/* 左側：架電リスト */}
-      <Col span={showActivityPanel ? 12 : 24}>
-        <Card>
-          <Space style={{ marginBottom: 16 }}>
-            <Input
-              placeholder="企業名、担当者、業界で検索"
-              prefix={<SearchOutlined />}
-              onChange={e => handleSearch(e.target.value)}
-              style={{ width: 300 }}
-              allowClear
-            />
-          </Space>
-          <Table
-            columns={columns}
-            dataSource={sortedList}
-            rowKey="id"
-            pagination={{ pageSize: 15 }}
-            size="middle"
-            scroll={{ y: 'calc(100vh - 120px)' }}
-          />
-        </Card>
-      </Col>
-
-      {/* 右側：活動履歴パネル */}
-      {showActivityPanel && selectedCompany && (
-        <Col span={12}>
-          <Card
-            title={
-              <Space>
-                <Title level={4} style={{ margin: 0 }}>
-                  {selectedCompany.companyName} - 活動履歴
-                </Title>
-                <Button
-                  type="text"
-                  icon={<CloseOutlined />}
-                  onClick={() => setShowActivityPanel(false)}
-                />
-              </Space>
-            }
-            style={{ height: '100vh', overflow: 'auto' }}
-          >
-            <ActivityHistory companyId={selectedCompany.id} />
-          </Card>
-        </Col>
-      )}
+    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', marginBottom: '0', paddingBottom: '0' }}>
+      <Space style={{ marginBottom: 16 }}>
+        <Input
+          placeholder="企業名、担当者、業界で検索"
+          prefix={<SearchOutlined />}
+          onChange={e => handleSearch(e.target.value)}
+          style={{ width: 300 }}
+          allowClear
+        />
+      </Space>
+      <div style={{ flex: 1, overflow: 'hidden', marginBottom: '0', paddingBottom: '0', height: 'calc(100% - 60px)' }}>
+        <Table
+          columns={columns}
+          dataSource={sortedList}
+          rowKey="id"
+          pagination={{ 
+            pageSize: isCompanySelected ? 3 : 15,
+            showSizeChanger: true,
+            showQuickJumper: true,
+            showTotal: (total, range) => `${range[0]}-${range[1]} / ${total}件`,
+            showPrevNextJumpers: true,
+            position: ['bottomCenter'],
+            size: 'default'
+          }}
+          size="middle"
+          scroll={{ y: isCompanySelected ? 'calc(45vh - 180px)' : 'calc(100vh - 300px)' }}
+          style={{ height: '100%', marginBottom: '0' }}
+        />
+      </div>
 
       {/* 架電結果入力モーダル */}
       <Modal
@@ -359,6 +345,7 @@ const CallList: React.FC<CallListProps> = ({ callList, onSelectCompany }) => {
             setCallTarget(null);
           }}
           companyData={{
+            id: callTarget.id,
             companyName: callTarget.companyName,
             contactPerson: callTarget.contactPerson,
             phoneNumber: callTarget.phoneNumber,
@@ -366,7 +353,7 @@ const CallList: React.FC<CallListProps> = ({ callList, onSelectCompany }) => {
           }}
         />
       )}
-    </Row>
+    </div>
   );
 };
 

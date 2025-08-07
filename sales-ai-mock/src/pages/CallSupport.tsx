@@ -15,30 +15,45 @@ const CallSupport: React.FC = () => {
   };
 
   return (
-    <div>
-      <Row gutter={16}>
-        <Col xs={24} lg={selectedCompany ? 14 : 24}>
-          <Card title="架電リスト" style={{ height: '100%' }}>
-            <CallList
-              callList={callList}
-              onSelectCompany={handleSelectCompany}
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* 上側：架電リスト */}
+      <div style={{ 
+        flex: selectedCompany ? '0 0 45%' : '1 1 auto', 
+        overflow: 'hidden',
+        minHeight: selectedCompany ? '400px' : 'calc(100vh - 50px)',
+        marginBottom: '0',
+        paddingBottom: '0'
+      }}>
+        <Card title="架電リスト" style={{ height: '100%', marginBottom: '0' }}>
+          <CallList
+            callList={callList}
+            onSelectCompany={handleSelectCompany}
+            isCompanySelected={!!selectedCompany}
+          />
+        </Card>
+      </div>
+
+      {/* 下側：会社情報と活動履歴 */}
+      {selectedCompany && (
+        <div style={{ 
+          flex: '0 0 55%', 
+          overflow: 'auto',
+          borderTop: '1px solid #f0f0f0',
+          marginTop: '0',
+          paddingTop: '0',
+          height: '55vh'
+        }}>
+          <div style={{ padding: '16px', height: '100%' }}>
+            <SimpleCompanyInfo
+              companyData={selectedCompany}
+              onClose={() => setSelectedCompany(null)}
             />
-          </Card>
-        </Col>
-        {selectedCompany && (
-          <Col xs={24} lg={10}>
-            <div>
-              <SimpleCompanyInfo
-                companyData={selectedCompany}
-                onClose={() => setSelectedCompany(null)}
-              />
-              <Card title="活動履歴" size="small">
-                <ActivityHistory companyId={selectedCompany.id} />
-              </Card>
-            </div>
-          </Col>
-        )}
-      </Row>
+            <Card title="活動履歴" size="small" style={{ marginTop: 16 }}>
+              <ActivityHistory companyId={selectedCompany.id} />
+            </Card>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

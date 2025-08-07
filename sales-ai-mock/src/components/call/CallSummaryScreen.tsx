@@ -286,6 +286,17 @@ const CallSummaryScreen: React.FC<CallSummaryScreenProps> = ({
           <Col span={12}>
             <Card title="架電結果">
               <Form.Item
+                name="notes"
+                label="備考・メモ"
+                rules={[{ required: true, message: '備考を入力してください' }]}
+              >
+                <TextArea
+                  rows={12}
+                  placeholder="追加の備考や重要なポイント"
+                />
+              </Form.Item>
+
+              <Form.Item
                 name="connected"
                 label="通電結果"
                 rules={[{ required: true }]}
@@ -327,17 +338,6 @@ const CallSummaryScreen: React.FC<CallSummaryScreenProps> = ({
                 rules={[{ required: true, message: '次回アクションを入力してください' }]}
               >
                 <Input placeholder="次に取るべきアクション" />
-              </Form.Item>
-
-              <Form.Item
-                name="notes"
-                label="備考・メモ"
-                rules={[{ required: true, message: '備考を入力してください' }]}
-              >
-                <TextArea
-                  rows={6}
-                  placeholder="追加の備考や重要なポイント"
-                />
               </Form.Item>
             </Card>
           </Col>

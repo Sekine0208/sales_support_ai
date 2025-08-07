@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Spin, App, Tabs, Card, Divider } from 'antd';
+import { Row, Col, Spin, App, Tabs, Card, Divider, Button } from 'antd';
 import {
   ClockCircleOutlined,
   TeamOutlined,
   UserOutlined,
   ShoppingOutlined,
   DashboardOutlined,
+  AlertOutlined,
 } from '@ant-design/icons';
 import KPIGrid from '../features/management/components/KPIGrid';
 import AnalysisFilter from '../features/management/components/AnalysisFilter';
-import CrossAnalysisGrid from '../features/management/components/CrossAnalysisGrid';
+import CrossAnalysisGrid from '../components/management/CrossAnalysisGrid';
 import ManagementOverview from '../components/management/ManagementOverview';
+import AlertTable from '../components/management/AlertTable';
 import { useKpiFilter } from '../features/management/hooks/useKpiFilter';
 import type {
   FilterCondition,
@@ -93,6 +95,26 @@ const ManagementDashboard: React.FC = () => {
               console.log('Sort:', field, order);
             }}
           />
+        </Spin>
+      ),
+    },
+    {
+      key: 'alert',
+      label: (
+        <span>
+          <AlertOutlined />
+          アラート
+        </span>
+      ),
+      children: (
+        <Spin spinning={loading} tip="データを読み込んでいます...">
+          <div style={{ padding: '16px' }}>
+            <AlertTable
+              filters={filters}
+              departments={departments}
+              users={users}
+            />
+          </div>
         </Spin>
       ),
     },

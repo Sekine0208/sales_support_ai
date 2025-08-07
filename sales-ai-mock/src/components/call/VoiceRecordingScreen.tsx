@@ -191,36 +191,36 @@ const VoiceRecordingScreen: React.FC<VoiceRecordingScreenProps> = ({
   }, []);
 
   return (
-    <div style={{ padding: '20px 0' }}>
-      {/* ヘッダー情報 */}
-      <Card style={{ marginBottom: 20 }}>
-        <Row gutter={16} align="middle">
-          <Col span={18}>
-            <Space direction="vertical" size="small">
-              <Title level={4} style={{ margin: 0 }}>
-                通話中 - {companyData.companyName}
-              </Title>
-              <Text>
-                <strong>担当者:</strong> {companyData.contactPerson} | 
-                <strong> 電話番号:</strong> {companyData.phoneNumber}
-              </Text>
-            </Space>
-          </Col>
-          <Col span={6} style={{ textAlign: 'right' }}>
-            <Space direction="vertical" size="small" style={{ textAlign: 'center' }}>
-              <ClockCircleOutlined style={{ fontSize: '24px', color: '#1890ff' }} />
-              <Text strong style={{ fontSize: '18px' }}>
-                {formatTime(duration)}
-              </Text>
-            </Space>
-          </Col>
-        </Row>
-      </Card>
+    <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+             {/* ヘッダー情報 */}
+       <Card style={{ marginBottom: 6, flexShrink: 0, padding: '2px 8px' }}>
+         <Row gutter={12} align="middle">
+           <Col span={18}>
+             <Space direction="vertical" size={0}>
+               <Title level={5} style={{ margin: 0, fontSize: '12px', lineHeight: '1.1' }}>
+                 通話中 - {companyData.companyName}
+               </Title>
+               <Text style={{ fontSize: '10px', lineHeight: '1.1' }}>
+                 <strong>担当者:</strong> {companyData.contactPerson} | 
+                 <strong> 電話番号:</strong> {companyData.phoneNumber}
+               </Text>
+             </Space>
+           </Col>
+           <Col span={6} style={{ textAlign: 'right' }}>
+             <Space direction="vertical" size={0} style={{ textAlign: 'center' }}>
+               <ClockCircleOutlined style={{ fontSize: '12px', color: '#1890ff' }} />
+               <Text strong style={{ fontSize: '11px', lineHeight: '1.1' }}>
+                 {formatTime(duration)}
+               </Text>
+             </Space>
+           </Col>
+         </Row>
+       </Card>
 
-      <Row gutter={16}>
+      <Row gutter={16} style={{ flex: 1, minHeight: 0 }}>
         {/* 左側: 録音コントロール */}
         <Col span={8}>
-          <Card title="録音コントロール">
+          <Card title="録音コントロール" style={{ height: '100%' }}>
             <Space direction="vertical" size="large" style={{ width: '100%', textAlign: 'center' }}>
               {/* 録音状態 */}
               <div>
@@ -275,39 +275,62 @@ const VoiceRecordingScreen: React.FC<VoiceRecordingScreenProps> = ({
           </Card>
         </Col>
 
-        {/* 右側: リアルタイム文字起こし */}
-        <Col span={16}>
-          <Card 
-            title="リアルタイム文字起こし" 
-            style={{ height: 400 }}
-            bodyStyle={{ height: 320, overflow: 'auto' }}
-          >
-            <Paragraph style={{ whiteSpace: 'pre-wrap', margin: 0 }}>
-              {transcript || '会話の文字起こしがここに表示されます...'}
-            </Paragraph>
-          </Card>
-        </Col>
+                 {/* 右側: リアルタイム文字起こし */}
+         <Col span={16}>
+           <Card 
+             title="リアルタイム文字起こし" 
+             style={{ height: '100%' }}
+             bodyStyle={{ 
+               height: '200px',
+               overflow: 'hidden',
+               padding: '12px'
+             }}
+           >
+             <div style={{
+               height: '100%',
+               overflow: 'auto',
+               wordBreak: 'break-word'
+             }}>
+               <Paragraph style={{ 
+                 whiteSpace: 'pre-wrap', 
+                 margin: 0,
+                 fontSize: '13px',
+                 lineHeight: '1.5',
+                 wordBreak: 'break-word'
+               }}>
+                 {transcript || '会話の文字起こしがここに表示されます...'}
+               </Paragraph>
+             </div>
+           </Card>
+         </Col>
       </Row>
 
-      <Divider />
-
-      {/* フッターボタン */}
-      <div style={{ textAlign: 'right' }}>
-        <Space>
-          <Button onClick={onCancel}>
-            キャンセル
-          </Button>
-          <Button
-            type="primary"
-            danger
-            icon={<PhoneOutlined />}
-            onClick={stopRecording}
-            disabled={!isRecording}
-          >
-            通話を終了
-          </Button>
-        </Space>
-      </div>
+             {/* フッターボタン - 固定位置 */}
+       <div style={{ 
+         textAlign: 'right', 
+         flexShrink: 0,
+         marginTop: '12px',
+         padding: '8px 0',
+         borderTop: '1px solid #f0f0f0',
+         backgroundColor: '#fff',
+         position: 'relative',
+         zIndex: 10
+       }}>
+         <Space>
+           <Button onClick={onCancel}>
+             キャンセル
+           </Button>
+           <Button
+             type="primary"
+             danger
+             icon={<PhoneOutlined />}
+             onClick={stopRecording}
+             disabled={!isRecording}
+           >
+             通話を終了
+           </Button>
+         </Space>
+       </div>
     </div>
   );
 };

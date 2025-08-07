@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Modal, Button, Space, Typography, Steps, Card, message, Row, Col } from 'antd';
-import { PhoneOutlined, CloseOutlined } from '@ant-design/icons';
+import { Modal, message } from 'antd';
 import VoiceRecordingScreen from './VoiceRecordingScreen';
 import CallSummaryScreen from './CallSummaryScreen';
-
-const { Title, Text } = Typography;
+import ActivityHistory from './ActivityHistory';
 
 interface CallPopupProps {
   visible: boolean;
   onClose: () => void;
   companyData: {
+    id: string;
     companyName: string;
     contactPerson: string;
     phoneNumber: string;
@@ -24,16 +23,20 @@ const CallPopup: React.FC<CallPopupProps> = ({
   onClose,
   companyData,
 }) => {
-  const [currentStep, setCurrentStep] = useState<CallStep>('confirm');
+  // 発信確認画面をスキップして直接録音画面に移行
+  const [currentStep, setCurrentStep] = useState<CallStep>('recording');
   const [callDuration, setCallDuration] = useState(0);
   const [transcript, setTranscript] = useState('');
 
+  // 発信確認画面の処理をコメントアウト（直接録音画面に移行するため不要）
+  /*
   const handleStartCall = () => {
     // 実際の発信処理（デモでは省略）
     console.log('発信開始:', companyData.phoneNumber);
     message.success('発信しました');
     setCurrentStep('recording');
   };
+  */
 
   const handleRecordingComplete = (transcriptText: string, duration: number) => {
     setTranscript(transcriptText);
@@ -45,7 +48,7 @@ const CallPopup: React.FC<CallPopupProps> = ({
     message.success('通話記録を保存しました');
     onClose();
     // リセット
-    setCurrentStep('confirm');
+    // setCurrentStep('confirm'); // 発信確認画面をコメントアウト
     setTranscript('');
     setCallDuration(0);
   };
@@ -64,7 +67,7 @@ const CallPopup: React.FC<CallPopupProps> = ({
     } else {
       onClose();
       // リセット
-      setCurrentStep('confirm');
+      // setCurrentStep('confirm'); // 発信確認画面をコメントアウト
       setTranscript('');
       setCallDuration(0);
     }
@@ -72,8 +75,8 @@ const CallPopup: React.FC<CallPopupProps> = ({
 
   const getModalTitle = () => {
     switch (currentStep) {
-      case 'confirm':
-        return '発信確認';
+      // case 'confirm': // 発信確認画面をコメントアウト
+      //   return '発信確認';
       case 'recording':
         return '通話中';
       case 'summary':
@@ -85,14 +88,23 @@ const CallPopup: React.FC<CallPopupProps> = ({
 
   const getModalWidth = () => {
     switch (currentStep) {
-      case 'confirm':
-        return 520;
+      // case 'confirm': // 発信確認画面をコメントアウト
+      //   return 520;
       case 'recording':
-        return 800;
+        return 1800; // 幅をさらに拡張
       case 'summary':
         return 1000;
       default:
         return 520;
+    }
+  };
+
+  const getModalHeight = () => {
+    switch (currentStep) {
+      case 'recording':
+        return '95vh'; // 高さをさらに拡張
+      default:
+        return 'auto';
     }
   };
 
@@ -106,7 +118,15 @@ const CallPopup: React.FC<CallPopupProps> = ({
       closable={currentStep !== 'recording'}
       maskClosable={false}
       centered
+      style={{ height: getModalHeight() }}
+      bodyStyle={{ 
+        height: currentStep === 'recording' ? 'calc(95vh - 110px)' : 'auto',
+        padding: 0,
+        display: 'flex',
+        flexDirection: 'column'
+      }}
     >
+      {/* 発信確認画面をコメントアウト（直接録音画面に移行するため不要）
       {currentStep === 'confirm' && (
         <div style={{ padding: '20px 0' }}>
           <Card style={{ marginBottom: 20 }}>
@@ -154,13 +174,40 @@ const CallPopup: React.FC<CallPopupProps> = ({
           </Space>
         </div>
       )}
+      */}
 
       {currentStep === 'recording' && (
-        <VoiceRecordingScreen
-          companyData={companyData}
-          onComplete={handleRecordingComplete}
-          onCancel={() => setCurrentStep('summary')}
-        />
+        <div style={{ 
+          height: '100%', 
+          display: 'flex', 
+          flexDirection: 'column',
+          padding: '20px'
+        }}>
+          {/* 上半分: 録音画面 */}
+          <div style={{ 
+            height: '50%', 
+            minHeight: '400px',
+            marginBottom: '20px'
+          }}>
+            <VoiceRecordingScreen
+              companyData={companyData}
+              onComplete={handleRecordingComplete}
+              onCancel={() => setCurrentStep('summary')}
+            />
+          </div>
+
+          {/* 下半分: 活動履歴 */}
+          <div style={{ 
+            height: '50%',
+            flex: 1,
+            overflow: 'hidden'
+          }}>
+            <ActivityHistory 
+              companyId={companyData.id} // 正しい企業IDを使用
+              limit={50}
+            />
+          </div>
+        </div>
       )}
 
       {currentStep === 'summary' && (
